@@ -78,6 +78,7 @@
        unique_id: Esp32_Led_Switch_1
        command_topic: "home/tm00/esp32/command/led/1"
        state_topic: "home/tm00/esp32/state/led/1"
+       value_template: "{{ value == 'on' }}"
        payload_on: "on"
        payload_off: "off"
        state_on: true
@@ -128,4 +129,3 @@
        state_on: true
        state_off: false
        retain: false
- 
