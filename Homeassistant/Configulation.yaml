@@ -1,98 +1,15 @@
 
-mqtt:
-  
-  - sensor:
-# Mqtt
-     - name: "Mqtt Temperature Sensor 1"
-       unique_id: Mqtt_sensor_temperature_1
-       state_topic: "state/txx/mqtt/temperature/1"
-       
-     - name: "Mqtt humidity Sensor 1"
-       unique_id: Mqtt_sensor_humidity_1
-       state_topic: "state/txx/mqtt/humidity/1"  
-        
-     - name: "Esp32 Temperature Sensor 1"
-       unique_id: Esp32_sensor_temperature_1
-       state_topic: "state/txx/esp32/temperature/1"  
-       
-     - name: "Esp32 humidity Senser 1"
-       unique_id: Esp32_sensor_humidity_1
-       state_topic: "state/txx/esp32/humidity/1"
-        
-  - switch:
-  
-# Mqtt - NodeRED
-       
-     - name: "Mqtt LED 1"
-       unique_id: Mqtt_Led_Switch_1
-       state_topic: "state/txx/mqtt/led/1"
-       value_template: "{{ value == 'on' }}"
-       command_topic: "command/txx/mqtt/led/1"
-       payload_on: "on"
-       payload_off: "off"
-       state_on: true
-       state_off: false
-       retain: false 
-       
-     - name: "Mqtt LED 2"
-       unique_id: Mqtt_Led_Switch_2
-       state_topic: "state/txx/mqtt/led/2"
-       value_template: "{{ value == 'on' }}"
-       command_topic: "command/txx/mqtt/led/2"
-       payload_on: "on"
-       payload_off: "off"
-       state_on: true
-       state_off: false
-       retain: false 
-       
-# Esp32
+# Loads default set of intgrations. Do not remove.
+default_config:
 
-     - name: "Esp32 Switch 1"
-       unique_id: Esp32_Switch_1
-       state_topic: "state/txx/esp32/switch/1"
-       command_topic: "command/txx/esp32/switch/1"
-     
-     - name: "Esp32 Led Led 1"
-       unique_id: Esp32_Led_Switch_1
-       state_topic: "state/txx/esp32/led/1"
-       value_template: "{{ value == '1' }}"
-       command_topic: "command/txx/esp32/led/1"
-       payload_on: "on"
-       payload_off: "off"
-       state_on: true
-       state_off: false
-       retain: false
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
 
-     - name: "Esp32 Led Switch 2"
-       unique_id: Esp32_Led_Switch_2
-       state_topic: "state/txx/esp32/led/2"
-       value_template: "{{ value == '1' }}"
-       command_topic: "command/txx/esp32/led/2"
-       payload_on: "on"
-       payload_off: "off"
-       state_on: true
-       state_off: false
-       retain: false
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
 
 
-     - name: "Esp32 Relay Switch 1"
-       unique_id: Esp32_Relay_Switch_1
-       state_topic: "state/txx/esp32/relay/1"
-       value_template: "{{ value == '1' }}"
-       command_topic: "command/txx/esp32/relay/1"
-       payload_on: "on"
-       payload_off: "off"
-       state_on: true
-       state_off: false
-       retain: false
-    
-     - name: "Esp32 Relay Switch 2"
-       unique_id: Esp32_Relay_Switch_2
-       state_topic: "state/txx/esp32/relay/2"
-       value_template: "{{ value == '1' }}"
-       command_topic: "command/txx/esp32/relay/2"
-       payload_on: "on"
-       payload_off: "off"
-       state_on: true
-       state_off: false
-       retain: false
+# 1) Add Mqtt
+mqtt: !include mqtt.yaml
