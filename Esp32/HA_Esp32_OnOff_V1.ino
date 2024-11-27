@@ -22,7 +22,7 @@
 // Set up command topic for receicing command to control device
 // Set up Sate topic for send back device state back to Homeassistant after done command
 #define command_topic_Led1 "home/tm00/esp32/command/led/1"
-#define state_topic_Led1 "home/tm00/esp32/command/led/1"
+#define state_topic_Led1 "home/tm00/esp32/state/led/1"
 #define payload_on_Led "on"
 #define payload_off_Led "off"
  
